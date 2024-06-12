@@ -1,10 +1,13 @@
 package ufro.ignacio.taller2_backend.models;
 
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -35,4 +38,7 @@ public class Episode {
 
     @Column(name = "url", nullable = false, length = 100)
     private String url;
+
+    @ManyToMany(mappedBy = "episodes")
+    private Set<Characters> characters2;
 }
